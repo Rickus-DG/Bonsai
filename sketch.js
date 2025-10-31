@@ -2,11 +2,12 @@ WIDTH = 500
 HEIGHT = 500
 BACKGROUNDCOLOUR = 220
 MAX_COUNT = -1
+FRAME_COUNT = 0
 RANDOM_SEED = 1
 
 function setup() {
   createCanvas(WIDTH, HEIGHT);
-  frameRate(1);
+  frameRate(3);
   textSize(32);
   fill(50);
 }
@@ -24,10 +25,17 @@ function draw() {
   arc(WIDTH/2, HEIGHT-40, 80, 80, 0, PI + QUARTER_PI, CHORD);
   if(MAX_COUNT < 6) {
     MAX_COUNT += 1;
+  }
+  
+  if (FRAME_COUNT < 20)
+  {
+    FRAME_COUNT += 1;
     return;
   }
+  
   RANDOM_SEED += 1;
-  MAX_COUNT = -1
+  MAX_COUNT = -1;
+  FRAME_COUNT = 0;
 }
 
 function recurse(x1, y1, x2, y2, count, lw) {
