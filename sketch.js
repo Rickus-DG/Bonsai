@@ -7,7 +7,7 @@ RANDOM_SEED = 1
 
 function setup() {
   createCanvas(WIDTH, HEIGHT);
-  frameRate(3);
+  frameRate(2);
   textSize(32);
   fill(50);
 }
@@ -51,8 +51,9 @@ function recurse(x1, y1, x2, y2, count, lw) {
   count += 1;
   for (let x = 0; x < count; x += 1) {
     strokeWeight(1)
-    circle(x1, y1, lw);
-    strokeWeight(lw)
+    fill("SaddleBrown");
+    circle(x1, y1, lw/7 * (MAX_COUNT+2));
+    strokeWeight(lw/7 * (MAX_COUNT+2))
     stroke("SaddleBrown")
     line(x1, y1, x2, y2);
     recurse(
